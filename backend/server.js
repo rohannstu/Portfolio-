@@ -11,14 +11,27 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const { MongoMemoryServer } = require('mongodb-memory-server');
+
 // MongoDB Connection
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/devtrack');
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
-    console.error(`Error: ${error.message}`);
-    process.exit(1);
+    console.log('Could not connect to local MongoDB. Attempting to start In-Memory MongoDB...');
+    try {
+      const mongod = await MongoMemoryServer.create();
+      const uri = mongod.getUri();
+      console.log(`In-Memory MongoDB started at ${uri}`);
+      
+      const conn = await mongoose.connect(uri);
+      console.log(`In-Memory MongoDB Connected: ${conn.connection.host}`);
+      console.log('NOTE: Data will be lost when server restarts');
+    } catch (memError) {
+      console.error(`Fatal Error: Could not start in-memory DB either. ${memError.message}`);
+      process.exit(1);
+    }
   }
 };
 

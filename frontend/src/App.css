@@ -2,12 +2,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -26,50 +28,49 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #333;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .logo-icon {
   font-size: 1.75rem;
 }
 
-.logo-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 0;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
 
 .nav-link {
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid transparent;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #666;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
-  transition: all 0.3s;
-  border-radius: 8px;
-  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
 }
 
 .nav-link:hover {
-  color: #333;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .nav-link.active {
-  color: white;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: white;
+  color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
 }
 
 .main-content {
@@ -81,17 +82,19 @@
 }
 
 .footer {
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  color: rgba(255, 255, 255, 0.6);
   text-align: center;
   padding: 2rem;
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', sans-serif;
 }
 
 .footer p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -103,11 +106,13 @@
   .nav-menu {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .nav-link {
     flex: 1;
     text-align: center;
+    min-width: 80px;
   }
 
   .main-content {

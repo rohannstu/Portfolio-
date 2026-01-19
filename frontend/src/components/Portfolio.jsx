@@ -3,11 +3,11 @@ import './Portfolio.css';
 
 const Portfolio = () => {
   const skills = [
-    { name: 'React', level: 'Advanced' },
-    { name: 'Node.js', level: 'Advanced' },
-    { name: 'MongoDB', level: 'Intermediate' },
-    { name: 'JavaScript', level: 'Advanced' },
-    { name: 'Express.js', level: 'Advanced' },
+    { name: 'React', level: 'Beginner' },
+    { name: 'Node.js', level: 'Beginner' },
+    { name: 'MongoDB', level: 'Beginner' },
+    { name: 'JavaScript', level: 'Intermediate' },
+    { name: 'Express.js', level: 'Beginner' },
     { name: 'REST APIs', level: 'Intermediate' }
   ];
 

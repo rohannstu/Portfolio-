@@ -1,12 +1,6 @@
-node_modules/
+node_modules
 .env
-.env.local
 .DS_Store
-*.log
-build/
-dist/
-.idea/
-.vscode/
-*.swp
-*.swo
-.git/
+dist
+build
+coverage
